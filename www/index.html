@@ -502,6 +502,19 @@ $(function() {
     // 投稿一覧表示順序選択
     $('#sortOrder').on('change', loadPosts);
 
+    // 背景色の変更
+    let colors = ['white', 'skyblue', 'lightyellow', 'lightcoral']; // 色の配列
+        let currentIndex = 0; // 現在の色のインデックス
+
+        $('#changeBgButton').on('click', function() {
+            // 配列内の次の色を取得
+            currentIndex = (currentIndex + 1) % colors.length; // インデックスを更新
+            const nextColor = colors[currentIndex]; // 次の色を決定
+
+            // 背景色を変更
+            $('body').css('background-color', nextColor);
+        });
+
     // 投稿一覧の初期読み込み
     loadPosts();
 });
